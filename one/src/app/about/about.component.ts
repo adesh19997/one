@@ -23,9 +23,14 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.Ydata=JSON.parse(localStorage.getItem('key1'));
-    //this.Ydata.splice(1,this.Ydata.length);
-    //localStorage.setItem('key1', JSON.stringify(this.Ydata));
+    if (localStorage.getItem("key1") === null) {
+      localStorage.setItem('key1', JSON.stringify(this.Ydata));
+    }
+    else{
+      this.Ydata=JSON.parse(localStorage.getItem('key1'));
+      //this.Ydata.splice(1,this.Ydata.length);
+      //localStorage.setItem('key1', JSON.stringify(this.Ydata));
+    }
   }
   addTask(){
     this.Ydata.push({'TText': this.Tasks, 'S1Text':this.Status, 'UsText':this.User });

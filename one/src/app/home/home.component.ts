@@ -35,10 +35,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     
-    this.Udata=JSON.parse(localStorage.getItem('key2'));
-    //this.Udata.splice(1,this.Udata.length);
-    //localStorage.setItem('key2', JSON.stringify(this.Udata));
-      
+    if (localStorage.getItem("key2") === null) {
+      localStorage.setItem('key2', JSON.stringify(this.Udata));
+    }
+    else{
+      this.Udata=JSON.parse(localStorage.getItem('key2'));
+      //this.Udata.splice(1,this.Udata.length);
+      //localStorage.setItem('key2', JSON.stringify(this.Udata));
+    }  
   
     }
 
