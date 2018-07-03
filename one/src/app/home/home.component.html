@@ -1,0 +1,74 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add new Employee</p>
+  </div>
+  <div class="col">
+    <p>Remove Employee</p>
+  </div>
+  
+</div>
+
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Fill/Update Employee Details</p>
+
+    <form (ngSubmit)="onSubmit()" #UForm="ngForm">
+      <div class="form-group">
+        <input type="text" class="form-control" name="Uname" placeholder="Employee Name(Unique)" [(ngModel)]="Users"  required>
+        
+       
+      </div>
+      
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="Des" placeholder="Designation" [(ngModel)]="Des"  required>
+        
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="Skill" placeholder="Skill" [(ngModel)]="Skill"  required>
+        
+      </div>
+      <div class="form-group">
+        <input  type="text" class="form-control" name="Email" placeholder="Email ID" [(ngModel)]="Email" required>
+        
+      </div>
+      <button class="btn" type="submit" (click)="addItem()" [disabled]="!UForm.form.valid">Submit</button>
+    </form>
+  </div>
+  
+  <div class="col">
+      <p class="sm">Enter Employee Name</p>
+      <input  type="text"  placeholder="Employee Name" [(ngModel)]="RmUser">
+  
+      <button class="btn" type="submit" (click)="remove()">Remove</button>
+      <p>{{msg}}</p>
+  </div>
+  
+</div>
+<div class="container color-dark">
+    <p>  User List </p>
+</div>
+<div class="container1 color-dark">
+    
+        <table class="life-container">
+          <thead>
+            <tr>
+              <th>Employee Name</th>
+              <th>Designation</th>
+              <th>Skill</th>
+              <th>Email ID</th>
+              <th>Task Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let item of Udata">
+              <td>{{item.UText}}</td>
+              <td>{{item.DText}}</td>
+              <td>{{item.SText}}</td>
+              <td>{{item.EText}}</td>
+              <td>{{item.StText}}</td>
+            </tr>
+          </tbody>
+        </table>
+      
+  </div>

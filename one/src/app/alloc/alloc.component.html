@@ -1,0 +1,56 @@
+<div class="container color-light">
+  <h2>Allocate Task</h2>
+</div>
+<div class="container color-dark">
+  
+  <div class="col">
+      <p>Unallocated Tasks List</p>
+      <select placeholder="Unallocated Tasks" [(ngModel)]="selected">
+        <option *ngFor="let selected of unTasks" [value]="selected">{{selected}}</option>
+        
+      </select>
+        
+    </div>
+    <div class="col">
+        <p>Unallocated Employee List</p>
+        <select placeholder="Unallocated Users" [(ngModel)]="selected1">
+          <option *ngFor="let selected1 of unUsers" >{{selected1}}</option>
+          
+        </select>
+          
+      </div>  
+  
+</div>
+
+
+  <div class="con">
+    
+      <input class="btn" type="submit" name="Allocate" (click)="select()" value="Allocate"> 
+      
+  </div>
+  <div class="container color-light">
+    <h2>Update Task Status</h2>
+  </div>
+  <div class="container color-dark">
+  
+    <div class="col">
+        <p>Select Task</p>
+        <select  placeholder="Unallocated Tasks" [(ngModel)]="selected3">
+          <option *ngFor="let selected of Tasks" [value]="selected">{{selected}}</option>
+          
+        </select>
+          
+    </div>
+        
+    
+  </div>
+  
+  
+<nav class="column">
+      
+        <input class="row:after" type="submit" name="Completed" (click)="complete()" value="Completed">
+        <input class="row:after" type="submit" name="Dealloc" (click)="dealloc()" value="De-Allocate">
+        <input class="row:after" type="submit" name="Abort" (click)="Abort()" value="Abort"> 
+        
+</nav>
+

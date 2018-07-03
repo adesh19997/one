@@ -1,0 +1,59 @@
+<div class="container color-dark">
+    <div class="col">
+      <p>Add new Task</p>
+    </div>
+    <div class="col">
+      <p>Remove Task </p>
+    </div>
+    
+  </div>
+  
+  <div class="container color-light">
+    <div class="col">
+      <p class="sm">Fill Task Details</p>
+  
+      <form (ngSubmit)="onSubmit()" #TForm="ngForm">
+        <div class="form-group">
+        <input id="task" type="text"  class="form-control" name="Task" placeholder="New Task" [(ngModel)]="Tasks" required>
+        </div>
+        <button class="btn" type="submit" (click)="addTask()" [disabled]="!TForm.form.valid">Add Task</button>
+        
+      </form>
+    </div>
+    <div class="col">
+      <p class="sm">Enter the Task</p>
+      
+        <input  id="Rmtask" type="text"  placeholder="Task" [(ngModel)]="RmTask">
+    
+        <button class="btn" type="submit" (click)="removeT()">Remove</button>
+        <p>{{msg1}}</p>
+        
+    </div>
+
+  </div>
+
+  <div class="container color-dark">
+        <p>Task List </p>
+  </div>      
+  <div class="container1 color-dark">
+                
+      
+    <table class="life-container">
+       <thead>
+           <tr>
+              <th>Task Name</th>
+              <th>Task Status</th>
+              <th>Employee Assigned</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let item of Ydata">
+               <td>{{item.TText}}</td>
+               <td>{{item.S1Text}}</td>
+               <td>{{item.UsText}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+      
+  </div>
